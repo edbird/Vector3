@@ -78,13 +78,12 @@ class vector3
         return *this;
     }
 
-    /*
-    vector3 operator-(vector3 other)
+    
+    vector3 operator-()
     {
-        vector3<T> copy(*this);
-        return 
+        return vector3<T>(-_x_, -_y_, -_z_);
     }
-    */
+    
 
     private:
 
@@ -355,12 +354,14 @@ std::ostream& operator<<(std::ostream& os, const vector3<T>& v)
 // INVERSION
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
 template<typename T>
 vector3<T> operator-(const vector3<T> &v)
 {
     //return vector3<T>(-v._x_, -v._y_);
     return vector3<T>(-v.GetX(), -v.GetY(), -v.GetZ());
 }
+*/
 
 
 #endif // VECTOR3_HPP
