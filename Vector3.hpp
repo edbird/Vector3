@@ -125,9 +125,38 @@ class vector3
         _z_ /= static_cast<T>(d);;
     }
 
+    inline T get_x() const
+    {
+        return _x_;
+    }
+
+    inline T get_y() const
+    {
+        return _y_;
+    }
+
+    inline T get_z() const
+    {
+        return _z_;
+    }
+
+
+
     public:
 
+    ////////////////////////////////////////////////////////////////////////////
+    // GET / SET
+    ////////////////////////////////////////////////////////////////////////////
 
+    T GetX() const { return get_x(); }
+    T GetY() const { return get_y(); }
+    T GetZ() const { return get_z(); }
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    // BINARY ARITHMATIC
+    ////////////////////////////////////////////////////////////////////////////
+    
     vector3& operator+=(const vector3& v)
     {
         add(v);
