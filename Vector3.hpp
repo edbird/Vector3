@@ -78,6 +78,14 @@ class vector3
         return *this;
     }
 
+    /*
+    vector3 operator-(vector3 other)
+    {
+        vector3<T> copy(*this);
+        return 
+    }
+    */
+
     private:
 
     inline bool compare(const vector3& l, const vector3& r)
@@ -125,6 +133,15 @@ class vector3
         _z_ /= static_cast<T>(d);;
     }
 
+    /*
+    inline void invert()
+    {
+        _x_ = -_x_;
+        _y_ = -_y_;
+        _z_ = -_z_;
+    }
+    */
+
     inline T get_x() const
     {
         return _x_;
@@ -140,9 +157,26 @@ class vector3
         return _z_;
     }
 
+    // scale vector
+    // multiply each dimension by a scaling factor
+    // simular to multiply method, except that scaling factors can be different
+    // for each dimension
+    // element-wise multiply
+    inline void scale(const vector3<T>& v)
+    {
+        _x_ *= v._x_;
+        _y_ *= v._y_;
+        _z_ *= v._z_;
+    }
 
 
     public:
+
+    // TODO: change name to ElementWiseMultiply
+    void Scale(const vector3<T>& v)
+    {
+        scale(v);
+    }
 
     ////////////////////////////////////////////////////////////////////////////
     // GET / SET
@@ -284,7 +318,7 @@ inline vector3<T> operator*(vector3<T> l, const U m)
 }
 
 template<typename T, typename U>
-inline vector3<T> operator*(const U m, const vector3<T> r)
+inline vector3<T> operator*(const U m, vector3<T> r)
 {
     r *= m;
     return r;
@@ -298,7 +332,7 @@ inline vector3<T> operator/(vector3<T> l, const U d)
 }
 
 template<typename T, typename U>
-inline vector3<T> operator/(const U d, const vector3<T> r)
+inline vector3<T> operator/(const U d, vector3<T> r)
 {
     r /= d;
     return r;
@@ -314,6 +348,18 @@ std::ostream& operator<<(std::ostream& os, const vector3<T>& v)
 {
     os << v.string_format_default();
     return os;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// INVERSION
+////////////////////////////////////////////////////////////////////////////////
+
+template<typename T>
+vector3<T> operator-(const vector3<T> &v)
+{
+    //return vector3<T>(-v._x_, -v._y_);
+    return vector3<T>(-v.GetX(), -v.GetY(), -v.GetZ());
 }
 
 
