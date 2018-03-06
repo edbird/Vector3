@@ -177,6 +177,7 @@ class vector3
         scale(v);
     }
 
+    /*
     double GetX() const
     {
         return get_x();
@@ -191,6 +192,7 @@ class vector3
     {
         return get_z();
     }
+    */
 
     ////////////////////////////////////////////////////////////////////////////
     // GET / SET
