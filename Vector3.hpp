@@ -79,7 +79,7 @@ class vector3
     }
 
     
-    vector3 operator-()
+    vector3 operator-() const
     {
         return vector3<T>(-_x_, -_y_, -_z_);
     }
