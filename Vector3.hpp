@@ -177,6 +177,21 @@ class vector3
         scale(v);
     }
 
+    double GetX() const
+    {
+        return get_x();
+    }
+
+    double GetY() const
+    {
+        return get_y();
+    }
+
+    double GetZ() const
+    {
+        return get_z();
+    }
+
     ////////////////////////////////////////////////////////////////////////////
     // GET / SET
     ////////////////////////////////////////////////////////////////////////////
