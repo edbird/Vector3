@@ -16,7 +16,8 @@ class vector3
 
     public:
 
-    friend std::ostream& operator<<(std::ostream& os, const vector3<T>& v);
+    template <typename U>
+    friend std::ostream& operator<<(std::ostream& os, const vector3<U>& v);
 
     friend inline void swap(vector3& l, vector3& r)
     {
