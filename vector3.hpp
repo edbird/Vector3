@@ -16,6 +16,9 @@ class vector3
 
     public:
 
+    template <typename U>
+    friend std::ostream& operator<<(std::ostream& os, const vector3<U>& v);
+
     friend inline void swap(vector3& l, vector3& r)
     {
         using std::swap;
@@ -261,7 +264,14 @@ class vector3
 
     //inline bool operator>=(const vector3& l, const vector3&r);
 
+    public:
 
+    std::string String() const
+    {
+        return string_format_default();
+    }
+
+    private:
     std::string string_format_default() const
     {
         std::ostringstream oss;
