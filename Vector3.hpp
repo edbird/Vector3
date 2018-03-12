@@ -168,6 +168,17 @@ class vector3
         _z_ *= v._z_;
     }
 
+    inline double length_square() const
+    {
+        return (_x_ * _x_) + (_y_ * _y_) + (_z_ * _z_);
+    }
+
+    inline double length() const
+    {
+        double l{length_square()};
+        return std::sqrt(l);
+    }
+
 
     public:
 
@@ -175,6 +186,11 @@ class vector3
     void Scale(const vector3<T>& v)
     {
         scale(v);
+    }
+
+    double Length() const
+    {
+        return length();
     }
 
     /*
