@@ -20,7 +20,7 @@ class vector3
     friend std::ostream& operator<<(std::ostream& os, const vector3<U>& v);
 
     template <typename U>
-    friend double dot(const vector3<U>& l, const vector3<U>& r);
+    friend inline double dot(const vector3<U>& l, const vector3<U>& r);
 
     friend inline void swap(vector3& l, vector3& r)
     {
@@ -177,6 +177,7 @@ class vector3
     inline double length_square() const
     {
         return (_x_ * _x_) + (_y_ * _y_) + (_z_ * _z_);
+        //return dot(*this, *this);
     }
 
     inline double length() const
@@ -401,16 +402,21 @@ std::ostream& operator<<(std::ostream& os, const vector3<T>& v)
 ////////////////////////////////////////////////////////////////////////////////
 
 template<typename U>
+inline
 double dot(const vector3<U>& l, const vector3<U>& r)
 {
     double x1{static_cast<double>(l._x_)};
     double x2{static_cast<double>(r._x_)};
+    
     double y1{static_cast<double>(l._y_)};
     double y2{static_cast<double>(r._y_)};
+    
     double z1{static_cast<double>(l._z_)};
     double z2{static_cast<double>(r._z_)};
+    
     double sum{x1 * x2 + y1 * y2 + z1 * z2};
-    return std::sqrt(sum);
+    //return std::sqrt(sum);
+    return sum;
 }
 
 
